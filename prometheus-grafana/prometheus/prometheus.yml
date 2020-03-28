@@ -5,7 +5,8 @@ global:
 alerting:
   alertmanagers:
   - static_configs:
-    - targets: []
+    - targets: 
+      - localhost:9093
     scheme: http
     timeout: 10s
     api_version: v1
@@ -19,3 +20,10 @@ scrape_configs:
   static_configs:
   - targets:
     - localhost:9090
+
+- job_name: 'haproxy'
+  static_configs:
+  - targets: ['localhost:8404']
+
+rule_files:
+  - 'alerts.yml'

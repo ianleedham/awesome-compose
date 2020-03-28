@@ -1,0 +1,14 @@
+global:
+    slack_api_url: 'https://api.slack.com/apps/id'
+
+route:
+    receiver: 'slack'
+
+receivers:
+    - name: 'slack'
+      slack_configs:
+        - send_resolved: true
+          username: 'alert manager'
+          channel: '#channel'
+          api_url: 'https://hooks.slack.com/services/key'
+
